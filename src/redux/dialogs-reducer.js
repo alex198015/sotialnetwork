@@ -34,8 +34,7 @@ const dialogsReducer = (state = initialState, action) => {
             return stateCopy;
         case UPDATE_NEW_MESSAGE:{
             let stateCopy = {...state}
-            stateCopy.newMessageOld = state.newMessageOld 
-            stateCopy.newMessageOld = action.newMassege;
+            stateCopy.newMessageOld = action.newMassege; 
             return stateCopy;
         }
         default:
