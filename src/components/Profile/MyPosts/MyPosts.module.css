@@ -8,3 +8,15 @@
 .postsBlock{
     padding: 20px;
 }
+.btn{
+    background-color: rgb(241, 107, 28);
+    border: 2px solid rgb(7, 247, 7);
+    transition: all 1s ease-in-out;
+}
+.btn:hover{
+    opacity: 0.8;
+    color:white;
+    background-color:rgb(236, 43, 9);
+    box-shadow: 2px 2px 1px rgb(182, 67, 67) inset;
+    border: 2px solid rgb(238, 166, 166);
+}
