@@ -4,10 +4,10 @@ const SET_USERS = 'SET_USERS'
 
 let initialState = {
     users: [
-         { id: 1, fotoURL:'https://uznayvse.ru/images/content/2017/4/uzn_14915721450.jpg', followed: false, fullName: 'Dmitriy', status: 'I am a boss', location: { city: 'Minsk', country: 'Belarus' } },
-         { id: 2, fotoURL:'https://uznayvse.ru/images/content/2017/4/uzn_14915721450.jpg', followed: true, fullName: 'Alex', status: 'I am a student', location: { city: 'England', country: 'London' } },
-         { id: 3, fotoURL:'https://uznayvse.ru/images/content/2017/4/uzn_14915721450.jpg', followed: false, fullName: 'Peter', status: 'I am looking for you', location: { city: 'Berlin', country: 'Germany' } },
-         { id: 4, fotoURL:'https://uznayvse.ru/images/content/2017/4/uzn_14915721450.jpg', followed: true, fullName: 'Olga', status: 'I am single', location: { city: 'Kiev', country: 'Ukraine' } }
+        //  { id: 1, fotoURL:'https://uznayvse.ru/images/content/2017/4/uzn_14915721450.jpg ', followed: false, fullName: 'Dmitriy', status: 'I am a boss', location: { city: 'Minsk', country: 'Belarus' } },
+        //  { id: 2, fotoURL:'https://uznayvse.ru/images/content/2017/4/uzn_14915721450.jpg ', followed: true, fullName: 'Alex', status: 'I am a student', location: { city: 'England', country: 'London' } },
+        //  { id: 3, fotoURL:'https://uznayvse.ru/images/content/2017/4/uzn_14915721450.jpg ', followed: false, fullName: 'Peter', status: 'I am looking for you', location: { city: 'Berlin', country: 'Germany' } },
+        //  { id: 4, fotoURL:'https://uznayvse.ru/images/content/2017/4/uzn_14915721450.jpg ', followed: true, fullName: 'Olga', status: 'I am single', location: { city: 'Kiev', country: 'Ukraine' } }
     ],
 
 };
