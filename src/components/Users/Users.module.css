@@ -3,7 +3,7 @@
     height: 50px;
     border-radius: 50px;
 }
-.selectedPage{
+/* .selectedPage{
     font-weight: bold;
     background-color: brown;
     margin-left: 10px;
@@ -13,4 +13,12 @@
 span {
     margin: 5px;
     cursor: pointer;
+} */
+.page{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+.users{
+    padding: 10px;
 }
