@@ -8,10 +8,7 @@ import Pagination from "react-js-pagination";
 
 
 class Users extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
+   
     componentDidMount() {
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
@@ -31,14 +28,14 @@ class Users extends React.Component {
 
     render() {
 
-        let pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
-        let pages = [];
-        for (let i = 1; i <= pageCount; i++) {
-            pages.push(i)
-        }
+        // let pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+        // let pages = [];
+        // for (let i = 1; i <= pageCount; i++) {
+        //     pages.push(i)
+        // }
         
         return (
-            <div>
+            <div >
                 <div className={s.page}>
                     {/* {pages.map(p => { */}
                     
