@@ -11,10 +11,6 @@ import { Provider } from 'react-redux';
 
 
 
-
-
-
-
 // let rerenderEntireTree = () => {
     ReactDOM.render(
         <BrowserRouter>
