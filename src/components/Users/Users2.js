@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap'
 import s from './Users.module.css'
 import userPhoto from './../../assets/images/user.jpg'
 import Pagination from "react-js-pagination";
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -35,7 +36,7 @@ const Users = (props) => {
                 { props.users.map((user) => <div key={user.id}>
                         <span>
                             <div className={s.photo}>
-                                <img src={user.photos.small != null ? user.photos.small : userPhoto} alt="" />
+                                <NavLink to={'/profile/' + user.id}><img src={user.photos.small != null ? user.photos.small : userPhoto} alt="" /></NavLink>
                             </div>
                             <div>
                                 {user.followed ?
