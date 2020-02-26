@@ -14,7 +14,7 @@ const ProfileInfo= (props) => {
             {/* <img src="https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg" alt="12"></img> */}
             </div>
             <div>
-                <img src={props.profile.photos.large}/>
+                <img src={props.profile.photos.large} alt=""/>
                 <div>{props.profile.fullName}</div>
                 <div>{props.profile.aboutMe}</div>
                 <div>Ищу работу: {props.profile.lookingForAJobDescription}</div>
