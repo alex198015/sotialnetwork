@@ -5,7 +5,7 @@ import MyPostsContainer from './../MyPosts/MyPostsContainer';
 
 
 const Profile = (props) => {
-
+   
 
 
 
