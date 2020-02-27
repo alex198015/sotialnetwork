@@ -8,7 +8,7 @@ import { followAPI, unFollowAPI } from './../../api/api';
 
 
 const Users = (props) => {
-
+    
     return (
         <div >
             <div className={s.page}>
@@ -40,18 +40,22 @@ const Users = (props) => {
                         </div>
                         <div>
                             {user.followed ?
-                                <Button variant="danger" onClick={() => {
+                                <Button disabled={props.followingInProgress.some(id => id === user.id)} variant="danger" onClick={() => {
+                                    props.toggleFollowingProgress(true, user.id)
                                     unFollowAPI.getUnFollow(user).then(data => {
                                         if (data.resultCode === 0) {
                                             props.onUnFollow(user.id)
                                         }
+                                        props.toggleFollowingProgress(false, user.id)
                                     })
                                 }}>UNFOLLOW</Button> :
-                                <Button variant="success" onClick={() => {
+                                <Button disabled={props.followingInProgress.some(id => id === user.id)} variant="success" onClick={() => {
+                                    props.toggleFollowingProgress(true, user.id)
                                     followAPI.getFollow(user).then(data => {
                                         if (data.resultCode === 0) {
                                             props.onFollow(user.id)
                                         }
+                                        props.toggleFollowingProgress(false, user.id)
                                     })
                                 }}>FOLLOW</Button>
                             }
