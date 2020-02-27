@@ -10,14 +10,16 @@ import { withRouter } from 'react-router-dom';
 
 
 class ProfileContainer extends React.Component {
+    
     componentDidMount(){   
+        
         let userId = this.props.match.params.userId
         if(!userId){
             userId = 6116;            
         }
         this.props.setUserProfile(userId)
         
-        // usersAPI.getProfile(userId).then(response => {               
+        // usersAPI.getProfile(userId).then(response => {                 
         //         this.props.setUserProfile(response.data);               
         //     })
 

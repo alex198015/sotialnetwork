@@ -50,7 +50,7 @@ export const setUserProfileSuccess = (profile) => ({ type: SET_USER_PROFILE, pro
 export const setUserProfile = (userId) => {
     return (dispatch) => {
         usersAPI.getProfile(userId).then(response => { 
-                         
+              
             dispatch(setUserProfileSuccess(response.data));               
         })
     }
