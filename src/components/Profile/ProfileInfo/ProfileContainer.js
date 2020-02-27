@@ -10,15 +10,23 @@ import { withRouter } from 'react-router-dom';
 
 
 class ProfileContainer extends React.Component {
-    componentDidMount(){        
+    componentDidMount(){   
         let userId = this.props.match.params.userId
         if(!userId){
             userId = 6116;            
         }
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-            .then(response => {               
-                this.props.setUserProfile(response.data);               
-            })
+        this.props.setUserProfile(userId)
+        
+        // usersAPI.getProfile(userId).then(response => {               
+        //         this.props.setUserProfile(response.data);               
+        //     })
+
+        // let userId = this.props.match.params.userId
+        // if(!userId){
+        //     userId = 6116;            
+        // }
+        // axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+            
     }
 
     render() {
