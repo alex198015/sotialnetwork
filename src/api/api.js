@@ -15,20 +15,28 @@ export const usersAPI = {
     getUsers(currentPage = 1, pageSize = 10) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
             .then(response => response.data)
-    }
-}
-
-
-export const unFollowAPI = {
-    getUnFollow(user) {
-        return instance.delete(`follow/${user.id}`)
+    },
+    getUnFollow(userId) {
+        return instance.delete(`follow/${userId}`)
+            .then(response => response.data)
+    },
+    getFollow(userId) {
+        return instance.post(`follow/${userId}`)
             .then(response => response.data)
     }
 }
 
-export const followAPI = {
-    getFollow(user) {
-        return instance.post(`follow/${user.id}`)
-            .then(response => response.data)
-    }
-}
+
+// export const unFollowAPI = {
+//     getUnFollow(user) {
+//         return instance.delete(`follow/${user.id}`)
+//             .then(response => response.data)
+//     }
+// }
+
+// export const followAPI = {
+//     getFollow(user) {
+//         return instance.post(`follow/${user.id}`)
+//             .then(response => response.data)
+//     }
+// }
