@@ -11,7 +11,7 @@ const ProfileInfo= (props) => {
     return(
         <div className={s.item}>
             <div >
-            {/* <img src="https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg" alt="12"></img> */}
+            <img src="https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg" alt="12"></img>
             </div>
             <div>
                 <img src={props.profile.photos.large} alt=""/>

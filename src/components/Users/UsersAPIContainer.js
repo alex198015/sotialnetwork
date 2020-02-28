@@ -4,6 +4,7 @@ import { onUnFollow, onFollow, setCurrentPage,getUsers } from '../../redux/users
 import { connect } from 'react-redux';
 import Preloader from './../common/Preloader/Preloader';
 import { withAuthRedirect } from './../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 
 
@@ -90,15 +91,19 @@ let mapStateToProps = (state) => {
 // }
 
 
-export default withAuthRedirect(connect(mapStateToProps, {
-    onFollow,
-    onUnFollow,
+// export default withAuthRedirect(connect(mapStateToProps, {
+//     onFollow,
+//     onUnFollow,
     // onSetUsers,
-    setCurrentPage,
+    // setCurrentPage,
     // setTotalUsersCount,
     // toggleIsFetching,
     // toggleFollowingProgress,
-    getUsers
-})(UsersAPIContainer))
+//     getUsers
+// })(UsersAPIContainer))
 
+export default compose(
+    connect(mapStateToProps, {onFollow, onUnFollow, setCurrentPage, getUsers}),
+    withAuthRedirect
+)(UsersAPIContainer)
 

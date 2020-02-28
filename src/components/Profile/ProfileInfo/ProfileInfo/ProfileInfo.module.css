@@ -6,3 +6,6 @@
 .picture{
     cursor: pointer;
 }
+.item img {
+    margin: 5px;
+}

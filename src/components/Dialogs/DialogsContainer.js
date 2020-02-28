@@ -1,10 +1,11 @@
-import React from 'react';
+
 import { updateNewMessageBody,sendMessage } from '../../redux/dialogs-reducer';
 // import { addNewMessageActionCreator } from '../../redux/dialogs-reducer';
 import Dialogs from './Dialogs';
 // import StoreContext from '../../StoreContext';
 import { connect } from 'react-redux';
 import { withAuthRedirect } from './../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 // const DialogsContainer = () => {
 
@@ -39,19 +40,19 @@ import { withAuthRedirect } from './../../hoc/withAuthRedirect';
 //         </StoreContext.Consumer>
 //     )
 // }
+// compose(
+//     connect(mapStateToProps, {updateNewMessageBody,sendMessage}),
+//     withAuthRedirect
+//     )(Dialogs)
 
-let AuthRedirectComponent = withAuthRedirect(Dialogs);
+
+// let AuthRedirectComponent = withAuthRedirect(Dialogs);
 
 
 let mapStateToProps = (state) => ({
     dialogsPage:state.dialogsPage,
 })
-   
-    
 
-        
-        
-    
 
 // let mapDispatchToProps = (dispatch) => {
 //     return{
@@ -64,6 +65,12 @@ let mapStateToProps = (state) => ({
 //     }
 // }
 
-const DialogsContainer = connect(mapStateToProps, {updateNewMessageBody,sendMessage})(AuthRedirectComponent);
+// const DialogsContainer = connect(mapStateToProps, {updateNewMessageBody,sendMessage})(AuthRedirectComponent);
 
-export default DialogsContainer;
+// export default DialogsContainer;
+
+export default compose(
+    connect(mapStateToProps, {updateNewMessageBody,sendMessage}),
+    withAuthRedirect
+    )(Dialogs);
+
