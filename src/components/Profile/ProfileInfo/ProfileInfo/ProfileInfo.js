@@ -16,11 +16,12 @@ const ProfileInfo= (props) => {
             </div>
             <div>
                 <img src={props.profile.photos.large} alt=""/>
-                <ProfileStatus status={'Hello my friends'}/>
-                <div>{props.profile.fullName}</div>
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+                {/* <div>{props.profile.fullName}</div>
                 <div>{props.profile.aboutMe}</div>
+                
                 <div>Ищу работу: {props.profile.lookingForAJobDescription}</div>
-                <div >Instagram: {props.profile.contacts.instagram}</div>
+                <div >Instagram: {props.profile.contacts.instagram}</div> */}
             </div>
             
 

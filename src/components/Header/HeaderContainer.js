@@ -7,9 +7,9 @@ import { getAuthUserData } from './../../redux/auth-reducer';
 
 
 class HeaderContainer extends React.Component {
-   
+    
     componentDidMount(){
-
+    
         this.props.getAuthUserData()
         // authAPI.me().then(response => {
         //         if(response.data.resultCode === 0){
@@ -37,6 +37,7 @@ class HeaderContainer extends React.Component {
 
 
 let mapStateToProps = (state) => {
+    
     return{
         isAuth:state.auth.isAuth,
         login:state.auth.login
