@@ -1,7 +1,8 @@
 import React from 'react'
 import s from './MyPosts.module.css'
 import Post from './Post/Post';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
+import { Field, reduxForm } from 'redux-form';
 
 
 
@@ -9,34 +10,28 @@ import { Button } from 'react-bootstrap';
 
 
 const MyPosts = (props) => {
-    
-    
+
+
 
     let PostsElements = props.posts.map(p => <Post message={p.message} key={p.id} likesCount={p.likesCount} />);
 
-    let newPostElement = React.createRef();
+    // let newPostElement = React.createRef();
 
-    let onAddPost = () => {
-        props.addPost();
-    };
+    // let onAddPost = () => {
+    //     props.addPost();
+    // };
+
+
+    let changePost = (values) => {
         
-
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.updateNewPostText(text);
+        props.addPost(values.newPostText);
     };
 
     return (
         <div className={s.postsBlock}>
             <h3>My posts</h3>
-            <div>
-                <textarea onChange={onPostChange} ref={newPostElement} 
-                value={props.newPostText}/>
-            </div>
-            <div>
-                {/* <button onClick={onAddPost}>Add post</button> */}
-                <Button  bsPrefix={s.btn} onClick={onAddPost}>Add post</Button>
-            </div>
+            <AddNewPostReduxForm onSubmit={changePost} />
+           
             <div className={s.posts}>
                 {PostsElements}
             </div>
@@ -45,4 +40,24 @@ const MyPosts = (props) => {
 
 
 }
+
+
+
+let AddNewPost = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div>
+                <Field component="textarea" name="newPostText"/>
+               
+            </div>
+            <div>
+               
+                <button bsPrefix={s.btn} >Add post</button>
+            </div>
+        </form>
+    )
+}
+
+let AddNewPostReduxForm = reduxForm({form: "mypost"})(AddNewPost)
+
 export default MyPosts;

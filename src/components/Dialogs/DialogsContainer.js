@@ -70,7 +70,10 @@ let mapStateToProps = (state) => ({
 // export default DialogsContainer;
 
 export default compose(
-    connect(mapStateToProps, {updateNewMessageBody,sendMessage}),
+    connect(mapStateToProps,
+         {
+            //  updateNewMessageBody,
+            sendMessage}),
     withAuthRedirect
     )(Dialogs);
 
