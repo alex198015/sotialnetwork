@@ -13,8 +13,7 @@ const Users = (props) => {
     return (
         <div >
             <div className={s.page}>
-                {/* {pages.map(p => { */}
-
+               
                 <Pagination
                     prevPageText='prev'
                     nextPageText='next'
@@ -29,9 +28,6 @@ const Users = (props) => {
                 />
 
 
-                {/* // return (<span className={this.props.currentPage === p && s.selectedPage} onClick={(e) => {this.onPageChanged(p)}}>{ p }</span> */}
-                {/* })} */}
-
             </div>
             <div className={s.users}>
                 {props.users.map((user) => <div key={user.id}>
@@ -44,24 +40,12 @@ const Users = (props) => {
                                 <Button disabled={props.followingInProgress.some(id => id === user.id)} variant="danger" onClick={() => {
                                     props.onUnFollow(user.id)
 
-                                    // props.toggleFollowingProgress(true, user.id)
-                                    // usersAPI.getUnFollow(user.id).then(data => {
-                                    //     if (data.resultCode === 0) {
-                                    //         props.onUnFollow(user.id)
-                                    //     }
-                                    //     props.toggleFollowingProgress(false, user.id)
-                                    // })
+                                   
                                 }}>UNFOLLOW</Button> :
                                 <Button disabled={props.followingInProgress.some(id => id === user.id)} variant="success" onClick={() => {
                                     props.onFollow(user.id)
 
-                                    // props.toggleFollowingProgress(true, user.id)
-                                    // usersAPI.getFollow(user.id).then(data => {
-                                    //     if (data.resultCode === 0) {
-                                    //         props.onFollow(user.id)
-                                    //     }
-                                    //     props.toggleFollowingProgress(false, user.id)
-                                    // })
+                                   
                                 }}>FOLLOW</Button>
                             }
                         </div>
@@ -72,8 +56,7 @@ const Users = (props) => {
                             <div>{user.status}</div>
                         </span>
                         <span>
-                            {/* <div>{user.location.country}</div>
-                            <div>{user.location.city}</div> */}
+                           
                         </span>
                     </span>
                 </div>

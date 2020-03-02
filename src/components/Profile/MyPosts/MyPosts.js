@@ -1,7 +1,6 @@
 import React from 'react'
 import s from './MyPosts.module.css'
 import Post from './Post/Post';
-// import { Button } from 'react-bootstrap';
 import { Field, reduxForm } from 'redux-form';
 
 
@@ -14,13 +13,6 @@ const MyPosts = (props) => {
 
 
     let PostsElements = props.posts.map(p => <Post message={p.message} key={p.id} likesCount={p.likesCount} />);
-
-    // let newPostElement = React.createRef();
-
-    // let onAddPost = () => {
-    //     props.addPost();
-    // };
-
 
     let changePost = (values) => {
         

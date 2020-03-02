@@ -14,26 +14,12 @@ class UsersAPIContainer extends React.Component {
     componentDidMount() {
 
         this.props.getUsers(this.props.currentPage, this.props.pageSize)
-        // this.props.toggleIsFetching(true)
-
-        // usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-        //     this.props.toggleIsFetching(false)
-        //     this.props.onSetUsers(data.items);
-        //     this.props.setTotalUsersCount(data.totalCount)
-        // })
 
     }
 
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber)
         this.props.getUsers(pageNumber, this.props.pageSize)
-
-        
-        // this.props.toggleIsFetching(true)
-        // usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
-        //     this.props.toggleIsFetching(false)
-        //     this.props.onSetUsers(data.items)
-        // })
 
     }
 
@@ -48,14 +34,14 @@ class UsersAPIContainer extends React.Component {
                 currentPage={this.props.currentPage}
                 pageSize={this.props.pageSize}
                 followingInProgress={this.props.followingInProgress}
-                // toggleFollowingProgress={this.props.toggleFollowingProgress}
+                
             />}
 
         </>
     }
 }
 
-// let AuthRedirectComponent = withAuthRedirect(UsersAPIContainer);
+
 
 let mapStateToProps = (state) => {
     return {
@@ -67,40 +53,7 @@ let mapStateToProps = (state) => {
         followingInProgress:state.usersPage.followingInProgress
     }
 }
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         onFollow: (userId) => {
-//             dispatch(followAC(userId))
-//         },
-//         onUnFollow: (userId) => {
-//             dispatch(unfollowAC(userId))
-//         },
-//         onSetUsers: (users) => {
-//             dispatch(setUsers(users))
-//         },
-//         setCurrentPage: (pageNumber) => {
-//             dispatch(setCurrentPageAC(pageNumber))
-//         },
-//         setTotalUsersCount: (totalCount) => {
-//             dispatch(setTotalUsersCountAC(totalCount))
-//         },
-//         toggleIsFetching: (isFetching) => {
-//             dispatch(toggleIsFetchingAC(isFetching))
-//         }
-//     }
-// }
 
-
-// export default withAuthRedirect(connect(mapStateToProps, {
-//     onFollow,
-//     onUnFollow,
-    // onSetUsers,
-    // setCurrentPage,
-    // setTotalUsersCount,
-    // toggleIsFetching,
-    // toggleFollowingProgress,
-//     getUsers
-// })(UsersAPIContainer))
 
 export default compose(
     connect(mapStateToProps, {onFollow, onUnFollow, setCurrentPage, getUsers}),

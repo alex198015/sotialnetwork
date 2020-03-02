@@ -22,15 +22,7 @@ class ProfileContainer extends React.Component {
         this.props.setUserProfile(userId);
         this.props.getUserStatus(userId);
         
-        // usersAPI.getProfile(userId).then(response => {                 
-        //         this.props.setUserProfile(response.data);               
-        //     })
-
-        // let userId = this.props.match.params.userId
-        // if(!userId){
-        //     userId = 6116;            
-        // }
-        // axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+       
             
     }
 
@@ -43,7 +35,6 @@ class ProfileContainer extends React.Component {
         )
     }
 }
-// let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
 
 
 let mapStateToProps = (state) => ({
@@ -51,9 +42,6 @@ let mapStateToProps = (state) => ({
     status: state.profilePage.status
 })
 
-// let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
-
-// export default connect(mapStateToProps,{setUserProfile})(WithUrlDataContainerComponent);
 
 export default compose(
     connect(mapStateToProps,{setUserProfile, getUserStatus, updateStatus}),

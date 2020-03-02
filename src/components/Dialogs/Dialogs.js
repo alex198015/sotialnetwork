@@ -2,7 +2,6 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import DialogItem from './DialogsItem/DialogItem'
 import Message from './Message/Message'
-// import { Button } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 
@@ -12,18 +11,6 @@ const Dialogs = (props) => {
 
     let state = props.dialogsPage;
 
-    // let onSendMessageClick = () => props.sendMessage()
-
-
-
-    // let newMassegeBody = state.newMessageOld;
-
-    // let onNewMessageChange = (e) => {
-    //     let text = e.target.value;
-    //     props.updateNewMessageBody(text)
-
-
-    // }
     let addNewMassage = (values) => {
         props.sendMessage(values.newMassegeBody)
     }
