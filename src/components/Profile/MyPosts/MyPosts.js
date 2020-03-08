@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {Component, PureComponent} from 'react'
 import s from './MyPosts.module.css'
 import Post from './Post/Post';
 import { Field, reduxForm } from 'redux-form';
@@ -9,16 +9,69 @@ const maxLength10 = maxLengthCreator(10)
 const minLength3 = minLengthCreator(3)
 
 
+// window.props = [];
 
-const MyPosts = (props) => {
+// class MyPosts extends PureComponent {
+//     // componentDidMount(){
+//     //     setTimeout(() => {
+//     //         this.setState({a:12});
+//     //     }, 3000)
+//     // }
+
+//     // shouldComponentUpdate(nextProps, nextState, nextContext){
+//     //     return nextProps !== this.props || nextState !== this.state
+//     // }
+
+// render(){
+//     console.log("render yo");
+//     // window.props.push(this.props);
+//     // console.log(this.props);
+    
+    
+//     let PostsElements = this.props.posts.map(p => <Post message={p.message} key={p.id} likesCount={p.likesCount} />);
+
+//     let changePost = (values) => {
+        
+//         this.props.addPost(values.newPostText);
+//     };
+
+//     return (
+//         <div className={s.postsBlock}>
+//             <h3>My posts</h3>
+//             <AddNewPostReduxForm onSubmit={changePost} />
+           
+//             <div className={s.posts}>
+//                 {PostsElements}
+//             </div>
+//         </div>
+//     )
+
+//     }
+// }
+
+const MyPosts = React.memo((props) => {
+    // componentDidMount(){
+    //     setTimeout(() => {
+    //         this.setState({a:12});
+    //     }, 3000)
+    // }
+
+    // shouldComponentUpdate(nextProps, nextState, nextContext){
+    //     return nextProps !== this.props || nextState !== this.state
+    // }
 
 
-
-    let PostsElements = props.posts.map(p => <Post message={p.message} key={p.id} likesCount={p.likesCount} />);
+    // console.log("render yo");
+    // window.props.push(this.props);
+    // console.log(this.props);
+    
+    
+    // let PostsElements = props.posts.map(p => <Post message={p.message} key={p.id} likesCount={p.likesCount} />);
+    let PostsElements = [...props.posts].reverse().map(p => <Post message={p.message} key={p.id} likesCount={p.likesCount} />);
 
     let changePost = (values) => {
         
-        props.addPost(values.newPostText);
+          props.addPost(values.newPostText);
     };
 
     return (
@@ -32,10 +85,8 @@ const MyPosts = (props) => {
         </div>
     )
 
-
-}
-
-
+    
+})
 
 let AddNewPost = (props) => {
     return (
@@ -50,8 +101,14 @@ let AddNewPost = (props) => {
             </div>
         </form>
     )
-}
+  }
+
 
 let AddNewPostReduxForm = reduxForm({form: "mypost"})(AddNewPost)
+
+
+
+
+
 
 export default MyPosts;
