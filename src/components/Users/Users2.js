@@ -1,9 +1,9 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+// import { Button } from 'react-bootstrap'
 import s from './Users.module.css'
-import userPhoto from './../../assets/images/user.jpg'
-import Pagination from "react-js-pagination";
-import { NavLink } from 'react-router-dom';
+// import userPhoto from './../../assets/images/user.jpg'
+// import Pagination from "react-js-pagination";
+// import { NavLink } from 'react-router-dom';
 import Paginator from '../common/Paginator/Paginator';
 import User from './User'
 
