@@ -4,15 +4,19 @@ import s from './Users.module.css'
 import userPhoto from './../../assets/images/user.jpg'
 import Pagination from "react-js-pagination";
 import { NavLink } from 'react-router-dom';
+import Paginator from '../common/Paginator/Paginator';
+import User from './User'
 
 
 
-
-const Users = (props) => {
+const Users = ({ currentPage, pageSize, totalUsersCount, onPageChanged, users, ...props }) => {
 
     return (
         <div >
-            <div className={s.page}>
+
+            <Paginator currentPage={currentPage} pageSize={pageSize}
+                totalUsersCount={totalUsersCount} onPageChanged={onPageChanged} />
+            {/* <div className={s.page}>
                
                 <Pagination
                     prevPageText='prev'
@@ -28,38 +32,15 @@ const Users = (props) => {
                 />
 
 
-            </div>
+            </div> */}
             <div className={s.users}>
-                {props.users.map((user) => <div key={user.id}>
-                    <span>
-                        <div className={s.photo}>
-                            <NavLink to={'/profile/' + user.id}><img src={user.photos.small != null ? user.photos.small : userPhoto} alt="" /></NavLink>
-                        </div>
-                        <div>
-                            {user.followed ?
-                                <Button disabled={props.followingInProgress.some(id => id === user.id)} variant="danger" onClick={() => {
-                                    props.onUnFollow(user.id)
+                {users.map((user) => <User user={user}
+                    key={user.id}
+                    followingInProgress={props.followingInProgress}
+                    onUnFollow={props.onUnFollow}
+                    onFollow={props.onFollow}
+                />
 
-                                   
-                                }}>UNFOLLOW</Button> :
-                                <Button disabled={props.followingInProgress.some(id => id === user.id)} variant="success" onClick={() => {
-                                    props.onFollow(user.id)
-
-                                   
-                                }}>FOLLOW</Button>
-                            }
-                        </div>
-                    </span>
-                    <span>
-                        <span>
-                            <div>{user.name}</div>
-                            <div>{user.status}</div>
-                        </span>
-                        <span>
-                           
-                        </span>
-                    </span>
-                </div>
                 )
                 }
             </div>
