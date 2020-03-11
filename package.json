@@ -2,6 +2,7 @@
   "name": "react-way-of-samurai",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://alex198015.github.io/sotialnetwork",
   "dependencies": {
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
@@ -23,6 +24,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -37,6 +40,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "gh-pages": "^2.2.0",
     "react-test-renderer": "^16.6.3"
   }
 }
