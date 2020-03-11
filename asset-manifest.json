@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/sotialnetwork/static/css/main.c4a09bf5.chunk.css",
+    "main.js": "/sotialnetwork/static/js/main.a86f5a1d.chunk.js",
+    "main.js.map": "/sotialnetwork/static/js/main.a86f5a1d.chunk.js.map",
+    "runtime-main.js": "/sotialnetwork/static/js/runtime-main.79f6301a.js",
+    "runtime-main.js.map": "/sotialnetwork/static/js/runtime-main.79f6301a.js.map",
+    "static/css/2.0996cbbd.chunk.css": "/sotialnetwork/static/css/2.0996cbbd.chunk.css",
+    "static/js/2.99197e4c.chunk.js": "/sotialnetwork/static/js/2.99197e4c.chunk.js",
+    "static/js/2.99197e4c.chunk.js.map": "/sotialnetwork/static/js/2.99197e4c.chunk.js.map",
+    "static/css/3.98039f08.chunk.css": "/sotialnetwork/static/css/3.98039f08.chunk.css",
+    "static/js/3.1dc1aeb9.chunk.js": "/sotialnetwork/static/js/3.1dc1aeb9.chunk.js",
+    "static/js/3.1dc1aeb9.chunk.js.map": "/sotialnetwork/static/js/3.1dc1aeb9.chunk.js.map",
+    "static/css/4.be96ada2.chunk.css": "/sotialnetwork/static/css/4.be96ada2.chunk.css",
+    "static/js/4.08f4d2f2.chunk.js": "/sotialnetwork/static/js/4.08f4d2f2.chunk.js",
+    "static/js/4.08f4d2f2.chunk.js.map": "/sotialnetwork/static/js/4.08f4d2f2.chunk.js.map",
+    "index.html": "/sotialnetwork/index.html",
+    "precache-manifest.1097b329874182a88cd50b8ba55fdd5e.js": "/sotialnetwork/precache-manifest.1097b329874182a88cd50b8ba55fdd5e.js",
+    "service-worker.js": "/sotialnetwork/service-worker.js",
+    "static/css/2.0996cbbd.chunk.css.map": "/sotialnetwork/static/css/2.0996cbbd.chunk.css.map",
+    "static/css/3.98039f08.chunk.css.map": "/sotialnetwork/static/css/3.98039f08.chunk.css.map",
+    "static/css/4.be96ada2.chunk.css.map": "/sotialnetwork/static/css/4.be96ada2.chunk.css.map",
+    "static/css/main.c4a09bf5.chunk.css.map": "/sotialnetwork/static/css/main.c4a09bf5.chunk.css.map",
+    "static/js/2.99197e4c.chunk.js.LICENSE.txt": "/sotialnetwork/static/js/2.99197e4c.chunk.js.LICENSE.txt",
+    "static/media/preloader.svg": "/sotialnetwork/static/media/preloader.5dc7e10b.svg",
+    "static/media/user.jpg": "/sotialnetwork/static/media/user.a5086149.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.79f6301a.js",
+    "static/css/2.0996cbbd.chunk.css",
+    "static/js/2.99197e4c.chunk.js",
+    "static/css/main.c4a09bf5.chunk.css",
+    "static/js/main.a86f5a1d.chunk.js"
+  ]
+}
