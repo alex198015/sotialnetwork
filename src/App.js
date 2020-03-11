@@ -10,7 +10,7 @@ import { compose } from 'redux';
 import { initializeApp } from './redux/app-reducer'
 import Preloader from './components/common/Preloader/Preloader';
 import store from './redux/redux-store'
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { withSuspense } from './hoc/withSuspense';
 // import DialogsContainer from './components/Dialogs/DialogsContainer';
@@ -78,11 +78,11 @@ let AppContainer = compose(
 
 let SamuraiJSApp = (props) => {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
