@@ -1,8 +1,10 @@
 import { usersAPI, profileAPI } from './../api/api';
+import { stopSubmit } from 'redux-form';
 const ADD_POST = 'ADD_POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 const DELETE_POST = 'DELETE_POST';
+const SAVE_PHOTO = 'samurai-network/profile/SAVE_PHOTO';
 
 
 let initialState = {
@@ -12,8 +14,8 @@ let initialState = {
         { id: 3, message: 'Blabla', likesCount: 11 },
         { id: 4, message: 'Dada', likesCount: 11 }],
     profile: null,
-    status: ''
-
+    status: '',
+    
 };
 
 
@@ -38,6 +40,11 @@ const profileReducer = (state = initialState, action) => {
             return { ...state, 
                 posts:state.posts.filter((p) => p.id !== action.postId) }
         }
+        case SAVE_PHOTO: {
+            return { ...state, profile:{...state.profile,photos:action.photos} }
+                
+        }
+       
         default:
             return state;
     }
@@ -48,6 +55,8 @@ export const addPostActionCreator = (newPostTextext) => ({ type: ADD_POST , newP
 export const setUserProfileSuccess = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const setStatus = (status) => ({ type: SET_STATUS, status })
 export const deletePost = (postId) => ({ type: DELETE_POST, postId })
+export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO, photos })
+
 
 
 
@@ -80,5 +89,35 @@ export const updateStatus = (status) => {
         
     }
 }
+
+export const savePhoto = (file) => {
+    return async (dispatch) => {
+        let response = await profileAPI.savePhoto(file)
+            
+            if (response.data.resultCode === 0) {
+                dispatch(savePhotoSuccess(response.data.data.photos));
+            }
+        
+    }
+}
+export const saveProfile = (profile)=> {
+    
+    return async (dispatch, getState) => {
+        const userId = getState().auth.userId
+        let response = await profileAPI.setProfile(profile)
+            
+            if (response.data.resultCode === 0) {
+                dispatch(setUserProfile(userId));
+            }else{
+                // let message = response.data.messages.length > 0 ? response.data.messages[0] : "Some error"
+                // dispatch(stopSubmit('contacts', {"contacts":{"facebook":response.data.messages[0]}})) 
+                dispatch(stopSubmit("edit-profile", {_error:response.data.messages[0]}));
+                return Promise.reject(response.data.messages[0]);
+            }
+        
+    }
+}
+
+
 
 export default profileReducer;

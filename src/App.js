@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter, BrowserRouter } from 'react-router-dom';
 import UsersAPIContainer from './components/Users/UsersAPIContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
@@ -10,7 +10,7 @@ import { compose } from 'redux';
 import { initializeApp } from './redux/app-reducer'
 import Preloader from './components/common/Preloader/Preloader';
 import store from './redux/redux-store'
-import { HashRouter } from 'react-router-dom';
+// import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { withSuspense } from './hoc/withSuspense';
 // import DialogsContainer from './components/Dialogs/DialogsContainer';
@@ -78,11 +78,12 @@ let AppContainer = compose(
 
 let SamuraiJSApp = (props) => {
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    // <HashRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}> 
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </HashRouter>
+    </BrowserRouter> 
   )
 }
 

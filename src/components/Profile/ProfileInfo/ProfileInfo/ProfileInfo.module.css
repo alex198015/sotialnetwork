@@ -9,3 +9,17 @@
 .item img {
     margin: 5px;
 }
+.mainphoto{
+    width: 200px;
+    height: 200px;
+    /* margin-left: -5px; */
+}
+.status{
+    padding-left: 4px;
+}
+.profile{
+    padding-left: 4px;
+}
+.mycontacts{
+    padding-left: 20px;
+}
