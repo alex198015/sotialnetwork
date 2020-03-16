@@ -4,6 +4,11 @@
   "private": true,
   "homepage": "https://alex198015.github.io/mysite2020",
   "dependencies": {
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.1",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "@types/redux-form": "^8.2.3",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "bootstrap-less": "^3.3.8",
@@ -20,6 +25,7 @@
     "redux-form": "^8.3.0",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
+    "typescript": "^3.8.3",
     "update": "^0.7.4"
   },
   "scripts": {
