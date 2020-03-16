@@ -6,11 +6,32 @@ import Preloader from './../common/Preloader/Preloader';
 // import { withAuthRedirect } from './../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 import { getPageSize, getCurrentPage, getFollowingInProgress, getTotalUsersCount, getIsFetching, getUsersSuperSelector } from './../../redux/users-selectors';
+import { UserType } from '../../Types/types';
+import { AppStateType } from '../../redux/redux-store';
 
+type MapStatePropsType = {
+    totalUsersCount:number,
+    pageSize: number,
+    currentPage: number,
+    isFetching:boolean,
+    users:Array<UserType>,
+    followingInProgress:Array<number>,
+}
 
+type MapDispatchPropsType = {
+    
+    onUnFollow:(userId:number) => void,
+    onFollow:(userId:number) => void,
+    getUsers:(currentPage:number,pageSize:number) => void
+}
 
+type OwnPropsType = {
+    pageTitle:string,
+}
 
-class UsersAPIContainer extends React.Component {
+type PropsType = OwnPropsType & MapDispatchPropsType & MapStatePropsType
+
+class UsersAPIContainer extends React.Component<PropsType> {
 
     componentDidMount() {
         let{currentPage,pageSize} = this.props
@@ -18,7 +39,7 @@ class UsersAPIContainer extends React.Component {
 
     }
 
-    onPageChanged = (pageNumber) => {
+    onPageChanged = (pageNumber:number) => {
         let{pageSize} = this.props
         // this.props.setCurrentPage(pageNumber)
         this.props.getUsers(pageNumber, pageSize)
@@ -27,7 +48,8 @@ class UsersAPIContainer extends React.Component {
 
     render() {
         return <>
-            {this.props.isFetching ? <Preloader /> : <Users
+        <h2>{this.props.pageTitle}</h2>
+            {this.props.isFetching && <Preloader /> }<Users
                 onPageChanged={this.onPageChanged}
                 users={this.props.users}
                 onUnFollow={this.props.onUnFollow}
@@ -37,7 +59,7 @@ class UsersAPIContainer extends React.Component {
                 pageSize={this.props.pageSize}
                 followingInProgress={this.props.followingInProgress}
                 
-            />}
+            />
 
         </>
     }
@@ -45,7 +67,7 @@ class UsersAPIContainer extends React.Component {
 
 
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state:AppStateType):MapStatePropsType => {
     return {
         users: getUsersSuperSelector(state),
         
@@ -60,7 +82,8 @@ let mapStateToProps = (state) => {
 
 
 export default compose(
-    connect(mapStateToProps, {onFollow, onUnFollow, getUsers}),
+    // <TStateProps = {}, TDispatchProps = {}, TOwnProps = {}, State = DefaultRootState></TStateProps>
+    connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType,AppStateType >(mapStateToProps, {onFollow, onUnFollow, getUsers}),
     // withAuthRedirect
 )(UsersAPIContainer)
 

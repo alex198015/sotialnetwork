@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 // import { Button } from 'react-bootstrap'
 import s from './Users.module.css'
 // import userPhoto from './../../assets/images/user.jpg'
@@ -6,10 +6,21 @@ import s from './Users.module.css'
 // import { NavLink } from 'react-router-dom';
 import Paginator from '../common/Paginator/Paginator';
 import User from './User'
+import { UserType } from '../../Types/types';
+// import Paginator from './../common/Paginator/Paginator Dimych';
 
+type PropsType = {
+    totalUsersCount: number,
+    pageSize: number,
+    currentPage: number,
+    onPageChanged: (pageNumber: number) => void,
+    users:Array<UserType>,
+    followingInProgress:Array<number>,
+    onUnFollow:(userId:number) => void,
+    onFollow:(userId:number) => void
+}
 
-
-const Users = ({ currentPage, pageSize, totalUsersCount, onPageChanged, users, ...props }) => {
+const Users: FC <PropsType> = ({ currentPage, pageSize, totalUsersCount, onPageChanged, users, ...props }) => {
 
     return (
         <div >

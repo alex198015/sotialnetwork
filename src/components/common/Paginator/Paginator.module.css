@@ -4,4 +4,14 @@
     padding-top: 10px;
     position: sticky;
     top: 5px;
+
+}
+.selectedPage{
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+.pageNumber{
+    cursor: pointer;
+    margin-left: 4px;
 }
