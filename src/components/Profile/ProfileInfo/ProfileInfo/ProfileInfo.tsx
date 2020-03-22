@@ -1,12 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState,FC } from 'react';
 import s from './ProfileInfo.module.css'
 import Preloader from '../../../common/Preloader/Preloader';
 // import ProfileStatus from './ProfileStatus';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import userPhoto from './../../../../assets/images/user.jpg'
 import ProfileDataFormReduxForm from './ProfileDataForm';
+import {ProfileType, PhotosType} from './../../../../Types/types'
+import { AxiosResponse } from 'axios';
 
-const ProfileInfo = ({ profile, status, updateStatus, savePhoto,isOwner, saveProfile }) => {
+type PropsType = {
+    profile:ProfileType,
+    status: string, 
+    updateStatus:(status: string) => void, 
+    savePhoto:(file:PhotosType) => void,
+    isOwner: boolean, 
+    saveProfile:(profile:ProfileType) => void,
+    goToEditMode:() => void
+    contactTitle:string,
+    contactValue:string
+}
+
+
+const ProfileInfo: FC<PropsType> = ({ profile, status, updateStatus, savePhoto,isOwner, saveProfile }) => {
     let [editMode, setEditMode] = useState(false);
 
     if (!profile) {
@@ -20,7 +35,7 @@ const ProfileInfo = ({ profile, status, updateStatus, savePhoto,isOwner, savePro
     }
 
     
-    const onSubmit = (formData) => {
+    const onSubmit = (formData:ProfileType) => {
 
         saveProfile(formData).then(
             () => {
@@ -49,7 +64,9 @@ const ProfileInfo = ({ profile, status, updateStatus, savePhoto,isOwner, savePro
     )
 }
 
-const ProfileData = ({profile,isOwner, goToEditMode}) => {
+
+
+const ProfileData:FC<PropsType> = ({profile,isOwner, goToEditMode}) => {
     return(
         <div className={s.profile}>
             {isOwner && <div><button onClick={goToEditMode}>edit</button></div>}
@@ -81,7 +98,7 @@ const ProfileData = ({profile,isOwner, goToEditMode}) => {
 
 
 
-const Contact = ({contactTitle,contactValue}) => {
+const Contact:FC<PropsType> = ({contactTitle,contactValue}) => {
     return(
         <div>
             <b className={s.mycontacts}>{contactTitle}</b> : {contactValue}
